@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	 overflow: hidden;
+	 perspective: 800px;
+}/*
+div {
+	 transform-style: preserve-3d;
+	 top: 0;
+	 left: 0;
+}*/
+.divsakura {
+	 transform-style: preserve-3d;
+	 top: 0;
+	 left: 0;
+}
+
+ .camera {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+}
+ .camera.-y {
+	 animation: cameraY 30s linear infinite;
+}
+ .camera.-x {
+	 transform: rotateX(10deg) translateY(-300px);
+}
+ .sakura {
+	 position: relative;
+	 width: 20px;
+	 height: 20px;
+	 border-radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+	 background: rgb(102, 163, 96);
+	 transform: rotateZ(45deg);
+}
+ .sakura::before {
+	 content: '';
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 background: rgb(33, 155, 82);
+	 border-radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+	 transform-origin: 100% 100%;
+	 transform: rotate(15deg);
+}
+ .slide {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 animation: slide 8s linear infinite;
+}
+ .drop {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 animation: drop 4s linear infinite;
+}
+ .drop:nth-child(1) {
+	 left: 7%;
+	 animation-delay: -4069ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(1) .slide {
+	 animation-delay: -312ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(1) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(1) .rotate {
+	 animation-delay: -5909ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(1) .move, .drop:nth-child(1) .reverse {
+	 animation-delay: -6295ms;
+}
+ .drop:nth-child(1) .z {
+	 transform: translateZ(746px);
+}
+ .drop:nth-child(2) {
+	 left: 71%;
+	 animation-delay: -1674ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(2) .slide {
+	 animation-delay: -1115ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(2) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(2) .rotate {
+	 animation-delay: -1829ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(2) .move, .drop:nth-child(2) .reverse {
+	 animation-delay: -4934ms;
+}
+ .drop:nth-child(2) .z {
+	 transform: translateZ(683px);
+}
+ .drop:nth-child(3) {
+	 left: 81%;
+	 animation-delay: -2422ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(3) .slide {
+	 animation-delay: -2482ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(3) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(3) .rotate {
+	 animation-delay: -6159ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(3) .move, .drop:nth-child(3) .reverse {
+	 animation-delay: -4224ms;
+}
+ .drop:nth-child(3) .z {
+	 transform: translateZ(-420px);
+}
+ .drop:nth-child(4) {
+	 left: 10%;
+	 animation-delay: -5292ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(4) .slide {
+	 animation-delay: -4451ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(4) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(4) .rotate {
+	 animation-delay: -8308ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(4) .move, .drop:nth-child(4) .reverse {
+	 animation-delay: -8425ms;
+}
+ .drop:nth-child(4) .z {
+	 transform: translateZ(-162px);
+}
+ .drop:nth-child(5) {
+	 left: 76%;
+	 animation-delay: -6341ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(5) .slide {
+	 animation-delay: -4275ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(5) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(5) .rotate {
+	 animation-delay: -5866ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(5) .move, .drop:nth-child(5) .reverse {
+	 animation-delay: -7351ms;
+}
+ .drop:nth-child(5) .z {
+	 transform: translateZ(638px);
+}
+ .drop:nth-child(6) {
+	 left: 97%;
+	 animation-delay: -2628ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(6) .slide {
+	 animation-delay: -1546ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(6) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(6) .rotate {
+	 animation-delay: -9131ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(6) .move, .drop:nth-child(6) .reverse {
+	 animation-delay: -3341ms;
+}
+ .drop:nth-child(6) .z {
+	 transform: translateZ(944px);
+}
+ .drop:nth-child(7) {
+	 left: 5%;
+	 animation-delay: -9754ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(7) .slide {
+	 animation-delay: -6205ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(7) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(7) .rotate {
+	 animation-delay: -4478ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(7) .move, .drop:nth-child(7) .reverse {
+	 animation-delay: -4484ms;
+}
+ .drop:nth-child(7) .z {
+	 transform: translateZ(-211px);
+}
+ .drop:nth-child(8) {
+	 left: 41%;
+	 animation-delay: -3931ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(8) .slide {
+	 animation-delay: -91ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(8) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(8) .rotate {
+	 animation-delay: -7543ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(8) .move, .drop:nth-child(8) .reverse {
+	 animation-delay: -5380ms;
+}
+ .drop:nth-child(8) .z {
+	 transform: translateZ(514px);
+}
+ .drop:nth-child(9) {
+	 left: 74%;
+	 animation-delay: -5843ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(9) .slide {
+	 animation-delay: -4119ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(9) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(9) .rotate {
+	 animation-delay: -1052ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(9) .move, .drop:nth-child(9) .reverse {
+	 animation-delay: -482ms;
+}
+ .drop:nth-child(9) .z {
+	 transform: translateZ(359px);
+}
+ .drop:nth-child(10) {
+	 left: 70%;
+	 animation-delay: -1130ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(10) .slide {
+	 animation-delay: -4864ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(10) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(10) .rotate {
+	 animation-delay: -2318ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(10) .move, .drop:nth-child(10) .reverse {
+	 animation-delay: -6285ms;
+}
+ .drop:nth-child(10) .z {
+	 transform: translateZ(-406px);
+}
+ .drop:nth-child(11) {
+	 left: 69%;
+	 animation-delay: -3789ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(11) .slide {
+	 animation-delay: -8988ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(11) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(11) .rotate {
+	 animation-delay: -3953ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(11) .move, .drop:nth-child(11) .reverse {
+	 animation-delay: -8452ms;
+}
+ .drop:nth-child(11) .z {
+	 transform: translateZ(207px);
+}
+ .drop:nth-child(12) {
+	 left: 52%;
+	 animation-delay: -6645ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(12) .slide {
+	 animation-delay: -1698ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(12) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(12) .rotate {
+	 animation-delay: -3287ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(12) .move, .drop:nth-child(12) .reverse {
+	 animation-delay: -5877ms;
+}
+ .drop:nth-child(12) .z {
+	 transform: translateZ(352px);
+}
+ .drop:nth-child(13) {
+	 left: 98%;
+	 animation-delay: -9184ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(13) .slide {
+	 animation-delay: -7844ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(13) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(13) .rotate {
+	 animation-delay: -13ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(13) .move, .drop:nth-child(13) .reverse {
+	 animation-delay: -4569ms;
+}
+ .drop:nth-child(13) .z {
+	 transform: translateZ(422px);
+}
+ .drop:nth-child(14) {
+	 left: 85%;
+	 animation-delay: -3664ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(14) .slide {
+	 animation-delay: -7365ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(14) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(14) .rotate {
+	 animation-delay: -7800ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(14) .move, .drop:nth-child(14) .reverse {
+	 animation-delay: -3475ms;
+}
+ .drop:nth-child(14) .z {
+	 transform: translateZ(107px);
+}
+ .drop:nth-child(15) {
+	 left: 91%;
+	 animation-delay: -3349ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(15) .slide {
+	 animation-delay: -3764ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(15) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(15) .rotate {
+	 animation-delay: -5960ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(15) .move, .drop:nth-child(15) .reverse {
+	 animation-delay: -2406ms;
+}
+ .drop:nth-child(15) .z {
+	 transform: translateZ(415px);
+}
+ .drop:nth-child(16) {
+	 left: 29%;
+	 animation-delay: -1170ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(16) .slide {
+	 animation-delay: -9862ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(16) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(16) .rotate {
+	 animation-delay: -4618ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(16) .move, .drop:nth-child(16) .reverse {
+	 animation-delay: -4605ms;
+}
+ .drop:nth-child(16) .z {
+	 transform: translateZ(254px);
+}
+ .drop:nth-child(17) {
+	 left: 87%;
+	 animation-delay: -5268ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(17) .slide {
+	 animation-delay: -6647ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(17) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(17) .rotate {
+	 animation-delay: -5998ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(17) .move, .drop:nth-child(17) .reverse {
+	 animation-delay: -9292ms;
+}
+ .drop:nth-child(17) .z {
+	 transform: translateZ(803px);
+}
+ .drop:nth-child(18) {
+	 left: 31%;
+	 animation-delay: -3605ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(18) .slide {
+	 animation-delay: -5420ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(18) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(18) .rotate {
+	 animation-delay: -1876ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(18) .move, .drop:nth-child(18) .reverse {
+	 animation-delay: -1304ms;
+}
+ .drop:nth-child(18) .z {
+	 transform: translateZ(211px);
+}
+ .drop:nth-child(19) {
+	 left: 78%;
+	 animation-delay: -6446ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(19) .slide {
+	 animation-delay: -3532ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(19) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(19) .rotate {
+	 animation-delay: -4915ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(19) .move, .drop:nth-child(19) .reverse {
+	 animation-delay: -2474ms;
+}
+ .drop:nth-child(19) .z {
+	 transform: translateZ(802px);
+}
+ .drop:nth-child(20) {
+	 left: 87%;
+	 animation-delay: -6278ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(20) .slide {
+	 animation-delay: -4597ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(20) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(20) .rotate {
+	 animation-delay: -453ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(20) .move, .drop:nth-child(20) .reverse {
+	 animation-delay: -5821ms;
+}
+ .drop:nth-child(20) .z {
+	 transform: translateZ(-248px);
+}
+ .drop:nth-child(21) {
+	 left: 12%;
+	 animation-delay: -6694ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(21) .slide {
+	 animation-delay: -9238ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(21) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(21) .rotate {
+	 animation-delay: -5580ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(21) .move, .drop:nth-child(21) .reverse {
+	 animation-delay: -4009ms;
+}
+ .drop:nth-child(21) .z {
+	 transform: translateZ(-14px);
+}
+ .drop:nth-child(22) {
+	 left: 66%;
+	 animation-delay: -4693ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(22) .slide {
+	 animation-delay: -6440ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(22) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(22) .rotate {
+	 animation-delay: -3783ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(22) .move, .drop:nth-child(22) .reverse {
+	 animation-delay: -7299ms;
+}
+ .drop:nth-child(22) .z {
+	 transform: translateZ(741px);
+}
+ .drop:nth-child(23) {
+	 left: 94%;
+	 animation-delay: -7661ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(23) .slide {
+	 animation-delay: -3024ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(23) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(23) .rotate {
+	 animation-delay: -5424ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(23) .move, .drop:nth-child(23) .reverse {
+	 animation-delay: -5583ms;
+}
+ .drop:nth-child(23) .z {
+	 transform: translateZ(136px);
+}
+ .drop:nth-child(24) {
+	 left: 84%;
+	 animation-delay: -8340ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(24) .slide {
+	 animation-delay: -6079ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(24) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(24) .rotate {
+	 animation-delay: -2425ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(24) .move, .drop:nth-child(24) .reverse {
+	 animation-delay: -6386ms;
+}
+ .drop:nth-child(24) .z {
+	 transform: translateZ(-801px);
+}
+ .drop:nth-child(25) {
+	 left: 60%;
+	 animation-delay: -4331ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(25) .slide {
+	 animation-delay: -4255ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(25) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(25) .rotate {
+	 animation-delay: -7061ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(25) .move, .drop:nth-child(25) .reverse {
+	 animation-delay: -3688ms;
+}
+ .drop:nth-child(25) .z {
+	 transform: translateZ(-9px);
+}
+ .drop:nth-child(26) {
+	 left: 56%;
+	 animation-delay: -1189ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(26) .slide {
+	 animation-delay: -2502ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(26) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(26) .rotate {
+	 animation-delay: -63ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(26) .move, .drop:nth-child(26) .reverse {
+	 animation-delay: -1197ms;
+}
+ .drop:nth-child(26) .z {
+	 transform: translateZ(-360px);
+}
+ .drop:nth-child(27) {
+	 left: 29%;
+	 animation-delay: -6074ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(27) .slide {
+	 animation-delay: -5541ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(27) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(27) .rotate {
+	 animation-delay: -844ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(27) .move, .drop:nth-child(27) .reverse {
+	 animation-delay: -6305ms;
+}
+ .drop:nth-child(27) .z {
+	 transform: translateZ(518px);
+}
+ .drop:nth-child(28) {
+	 left: 20%;
+	 animation-delay: -1378ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(28) .slide {
+	 animation-delay: -3679ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(28) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(28) .rotate {
+	 animation-delay: -8034ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(28) .move, .drop:nth-child(28) .reverse {
+	 animation-delay: -5445ms;
+}
+ .drop:nth-child(28) .z {
+	 transform: translateZ(857px);
+}
+ .drop:nth-child(29) {
+	 left: 98%;
+	 animation-delay: -8764ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(29) .slide {
+	 animation-delay: -8677ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(29) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(29) .rotate {
+	 animation-delay: -6687ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(29) .move, .drop:nth-child(29) .reverse {
+	 animation-delay: -1384ms;
+}
+ .drop:nth-child(29) .z {
+	 transform: translateZ(-364px);
+}
+ .drop:nth-child(30) {
+	 left: 48%;
+	 animation-delay: -6463ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(30) .slide {
+	 animation-delay: -9945ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(30) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(30) .rotate {
+	 animation-delay: -4784ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(30) .move, .drop:nth-child(30) .reverse {
+	 animation-delay: -2193ms;
+}
+ .drop:nth-child(30) .z {
+	 transform: translateZ(744px);
+}
+ .drop:nth-child(31) {
+	 left: 19%;
+	 animation-delay: -3209ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(31) .slide {
+	 animation-delay: -6496ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(31) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(31) .rotate {
+	 animation-delay: -6462ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(31) .move, .drop:nth-child(31) .reverse {
+	 animation-delay: -7463ms;
+}
+ .drop:nth-child(31) .z {
+	 transform: translateZ(95px);
+}
+ .drop:nth-child(32) {
+	 left: 44%;
+	 animation-delay: -2115ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(32) .slide {
+	 animation-delay: -6754ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(32) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(32) .rotate {
+	 animation-delay: -8127ms;
+	 animation-duration: 5s;
+}
+ .drop:nth-child(32) .move, .drop:nth-child(32) .reverse {
+	 animation-delay: -2228ms;
+}
+ .drop:nth-child(32) .z {
+	 transform: translateZ(-334px);
+}
+ .drop:nth-child(33) {
+	 left: 58%;
+	 animation-delay: -1475ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(33) .slide {
+	 animation-delay: -2874ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(33) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(33) .rotate {
+	 animation-delay: -9429ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(33) .move, .drop:nth-child(33) .reverse {
+	 animation-delay: -5932ms;
+}
+ .drop:nth-child(33) .z {
+	 transform: translateZ(718px);
+}
+ .drop:nth-child(34) {
+	 left: 81%;
+	 animation-delay: -7129ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(34) .slide {
+	 animation-delay: -8861ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(34) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(34) .rotate {
+	 animation-delay: -8461ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(34) .move, .drop:nth-child(34) .reverse {
+	 animation-delay: -8532ms;
+}
+ .drop:nth-child(34) .z {
+	 transform: translateZ(-777px);
+}
+ .drop:nth-child(35) {
+	 left: 28%;
+	 animation-delay: -3329ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(35) .slide {
+	 animation-delay: -5125ms;
+	 animation-duration: 6s;
+}
+ .drop:nth-child(35) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(35) .rotate {
+	 animation-delay: -9275ms;
+	 animation-duration: 4s;
+}
+ .drop:nth-child(35) .move, .drop:nth-child(35) .reverse {
+	 animation-delay: -8578ms;
+}
+ .drop:nth-child(35) .z {
+	 transform: translateZ(441px);
+}
+ .drop:nth-child(36) {
+	 left: 65%;
+	 animation-delay: -1086ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(36) .slide {
+	 animation-delay: -3800ms;
+	 animation-duration: 8s;
+}
+ .drop:nth-child(36) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(36) .rotate {
+	 animation-delay: -4460ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(36) .move, .drop:nth-child(36) .reverse {
+	 animation-delay: -3686ms;
+}
+ .drop:nth-child(36) .z {
+	 transform: translateZ(-756px);
+}
+ .drop:nth-child(37) {
+	 left: 60%;
+	 animation-delay: -6381ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(37) .slide {
+	 animation-delay: -4892ms;
+	 animation-duration: 9s;
+}
+ .drop:nth-child(37) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(37) .rotate {
+	 animation-delay: -4207ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(37) .move, .drop:nth-child(37) .reverse {
+	 animation-delay: -1621ms;
+}
+ .drop:nth-child(37) .z {
+	 transform: translateZ(414px);
+}
+ .drop:nth-child(38) {
+	 left: 53%;
+	 animation-delay: -4956ms;
+	 animation-duration: 10s;
+}
+ .drop:nth-child(38) .slide {
+	 animation-delay: -8451ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(38) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(38) .rotate {
+	 animation-delay: -6445ms;
+	 animation-duration: 2s;
+}
+ .drop:nth-child(38) .move, .drop:nth-child(38) .reverse {
+	 animation-delay: -5575ms;
+}
+ .drop:nth-child(38) .z {
+	 transform: translateZ(-597px);
+}
+ .drop:nth-child(39) {
+	 left: 46%;
+	 animation-delay: -5049ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(39) .slide {
+	 animation-delay: -9080ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(39) .size {
+	 transform: scale(2);
+}
+ .drop:nth-child(39) .rotate {
+	 animation-delay: -9202ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(39) .move, .drop:nth-child(39) .reverse {
+	 animation-delay: -7646ms;
+}
+ .drop:nth-child(39) .z {
+	 transform: translateZ(-518px);
+}
+ .drop:nth-child(40) {
+	 left: 86%;
+	 animation-delay: -3192ms;
+	 animation-duration: 7s;
+}
+ .drop:nth-child(40) .slide {
+	 animation-delay: -2262ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(40) .size {
+	 transform: scale(3);
+}
+ .drop:nth-child(40) .rotate {
+	 animation-delay: -80ms;
+	 animation-duration: 3s;
+}
+ .drop:nth-child(40) .move, .drop:nth-child(40) .reverse {
+	 animation-delay: -2167ms;
+}
+ .drop:nth-child(40) .z {
+	 transform: translateZ(-742px);
+}
+
+ .drop:nth-child(1) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -226ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(1) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(1) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(2) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6656ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(2) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(2) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(3) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -8704ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(3) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(3) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(4) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -4873ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(4) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(4) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(5) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -4092ms;
+	 animation-duration: 19s;
+}
+ .drop:nth-child(5) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(5) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(6) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -2194ms;
+	 animation-duration: 18s;
+}
+ .drop:nth-child(6) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(6) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(7) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -9916ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(7) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(7) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(8) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -4486ms;
+	 animation-duration: 18s;
+}
+ .drop:nth-child(8) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(8) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(9) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -8390ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(9) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(9) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(10) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1046ms;
+	 animation-duration: 20s;
+}
+ .drop:nth-child(10) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(10) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(11) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -3129ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(11) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(11) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(12) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -8683ms;
+	 animation-duration: 20s;
+}
+ .drop:nth-child(12) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(12) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(13) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -4792ms;
+	 animation-duration: 16s;
+}
+ .drop:nth-child(13) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(13) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(14) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6614ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(14) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(14) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(15) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -3650ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(15) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(15) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(16) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -3455ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(16) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(16) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(17) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1240ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(17) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(17) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(18) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -7735ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(18) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(18) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(19) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1853ms;
+	 animation-duration: 18s;
+}
+ .drop:nth-child(19) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(19) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(20) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -2206ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(20) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(20) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(21) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1754ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(21) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(21) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(22) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -4530ms;
+	 animation-duration: 15s;
+}
+ .drop:nth-child(22) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(22) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(23) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -2799ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(23) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(23) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(24) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -9772ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(24) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(24) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(25) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -5395ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(25) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(25) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(26) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -7786ms;
+	 animation-duration: 19s;
+}
+ .drop:nth-child(26) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(26) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(27) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6766ms;
+	 animation-duration: 16s;
+}
+ .drop:nth-child(27) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(27) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(28) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -388ms;
+	 animation-duration: 13s;
+}
+ .drop:nth-child(28) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(28) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(29) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -9360ms;
+	 animation-duration: 17s;
+}
+ .drop:nth-child(29) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(29) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(30) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -715ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(30) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(30) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(31) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -2821ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(31) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(31) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(32) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -8878ms;
+	 animation-duration: 19s;
+}
+ .drop:nth-child(32) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(32) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(33) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1245ms;
+	 animation-duration: 20s;
+}
+ .drop:nth-child(33) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(33) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(34) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6970ms;
+	 animation-duration: 14s;
+}
+ .drop:nth-child(34) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(34) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(35) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -2189ms;
+	 animation-duration: 11s;
+}
+ .drop:nth-child(35) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(35) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(36) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6372ms;
+	 animation-duration: 12s;
+}
+ .drop:nth-child(36) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(36) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(37) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -1690ms;
+	 animation-duration: 16s;
+}
+ .drop:nth-child(37) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(37) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(38) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -6434ms;
+	 animation-duration: 16s;
+}
+ .drop:nth-child(38) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(38) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(39) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -5768ms;
+	 animation-duration: 19s;
+}
+ .drop:nth-child(39) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(39) .size {
+	 transform: scale(1);
+}
+ .drop:nth-child(40) .slide {
+	 animation: slide 8s linear infinite reverse;
+	 animation-delay: -9557ms;
+	 animation-duration: 16s;
+}
+ .drop:nth-child(40) .sakura {
+	 transform: rotateZ(-45deg);
+}
+ .drop:nth-child(40) .size {
+	 transform: scale(1);
+}
+ .move {
+	 animation: rotateZ 10s linear infinite;
+}
+ .reverse {
+	 animation: rotateZ 10s linear infinite reverse;
+}
+ .stagger {
+	 transform: translateY(150px);
+}
+ .rotate {
+	 animation: rotateY 2s linear infinite;
+}
+ @keyframes rotateZ {
+	 0% {
+		 transform: rotateZ(0deg);
+	}
+	 100% {
+		 transform: rotateZ(360deg);
+	}
+}
+ @keyframes rotateY {
+	 0% {
+		 transform: rotateZ(-45deg) rotateY(0deg);
+	}
+	 100% {
+		 transform: rotateZ(-45deg) rotateY(360deg);
+	}
+}
+ @keyframes cameraX {
+	 0% {
+		 transform: rotateX(0deg);
+	}
+	 100% {
+		 transform: rotateX(360deg);
+	}
+}
+ @keyframes cameraY {
+	 0% {
+		 transform: rotateY(0deg);
+	}
+	 100% {
+		 transform: rotateY(360deg);
+	}
+}
+ @keyframes cameraZ {
+	 0% {
+		 transform: rotateZ(0deg);
+	}
+	 100% {
+		 transform: rotateZ(360deg);
+	}
+}
+ @keyframes slide {
+	 0% {
+		 transform: translateX(-2000px);
+	}
+	 100% {
+		 transform: translateX(2000px);
+	}
+}
+ @keyframes drop {
+	 0% {
+		 transform: translateY(-100px);
+	}
+	 100% {
+		 transform: translateY(1200px);
+	}
+}
+ 
+  </style>
+</head>
+<body class=" overflow-hidden w-screen h-screen">
+  <div class="absolte top-0 right-0 bg-red-500 bg-cover h-screen w-screen bg-center overflow-hidden" style="background-image: url(https://xatimg.com/image/9UpGwOQteAGq.gif);" >
+
+  </div>
+
+
+
+
+
+
+<div class="camera -x">
+  <div class="camera -y">
+    <div class="camera -z">
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <div class="z">
+          <div class="slide">
+            <div class="move">
+              <div class="stagger">
+                <div class="reverse">
+                  <div class="rotate">
+                    <div class="size">
+                      <div class="sakura"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+
+ 
+
+<div class="absolute pt-[93px] bg-center flex justify-center w-screen overflow-hidden pl-2 top-0">
+  <div class="relative w-screen h-screen  flex justify-center ">
+ 
+        
+        <div class="mx-auto w-full max-w-[728px] !h-[486px] pt-[9px] pl-[10px]">
+          <div class="w-full max-w-[525px] !h-[349px] relative">
+            <div class="absolute top-6 left-0 px-2">
+              <img src="https://iili.io/JNesxxj.gif" alt="Banner">
+            </div>
+            <div class="absolute bottom-6 right-0">
+              <img src="https://xatimg.com/image/uuW1FxBraxoi.gif" alt="ardilla">
+            </div>
+
+          </div>
+        </div>
+
+        </div>
+
+ 
+</div>
+
+
+</body>
+</html>
